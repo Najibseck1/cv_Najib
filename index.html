@@ -99,7 +99,7 @@
         </div>
 
         <div class="hero-visual no-print">
-          <!-- Beautiful Hybrid Concept Art (Dynamic SVG) -->
+          <!-- Beautiful Hybrid Concept Art with Embedded Portrait (Dynamic SVG) -->
           <svg class="hybrid-visual-svg" viewBox="0 0 400 400" width="100%" height="100%">
             <defs>
               <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -114,8 +114,12 @@
                 <stop offset="0%" stop-color="#1e293b" stop-opacity="1"/>
                 <stop offset="100%" stop-color="#0b0f19" stop-opacity="0"/>
               </radialGradient>
+              <clipPath id="avatarClip">
+                <circle cx="200" cy="200" r="95" />
+              </clipPath>
             </defs>
             
+            <!-- Radial background glow -->
             <circle cx="200" cy="200" r="140" fill="url(#centerGlow)"/>
             
             <!-- Process Loop (Chemical / Yeast / Formulation) -->
@@ -123,6 +127,14 @@
             
             <!-- Data Loop (Network / BI / Nodes) -->
             <path d="M 200,320 A 120,120 0 1,0 80,200" fill="none" stroke="url(#cyanGrad)" stroke-width="3" class="anim-rotate-counter"/>
+
+            <!-- Embedded Portrait photo -->
+            <g>
+              <!-- Outer ring for the portrait -->
+              <circle cx="200" cy="200" r="99" fill="none" stroke="url(#cyanGrad)" stroke-width="3" opacity="0.8"/>
+              <circle cx="200" cy="200" r="95" fill="#1e293b"/>
+              <image href="najib.jpg" x="105" y="105" width="190" height="190" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
+            </g>
 
             <!-- Node Dots -->
             <g class="nodes">
@@ -142,13 +154,6 @@
               
               <!-- Connection between Data and Process -->
               <line x1="200" y1="160" x2="200" y2="220" stroke="#ffffff" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="4 4"/>
-            </g>
-            
-            <!-- Central Icon Symbol -->
-            <g transform="translate(175, 175)">
-              <!-- Beaker merging with chart bar -->
-              <path d="M12 5v14M5 19h14M8 14h2M14 10h2" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none"/>
-              <path d="M6 9l4-4 4 4 6-6" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </g>
           </svg>
         </div>
