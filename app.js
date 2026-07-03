@@ -229,6 +229,14 @@ function initContactForm() {
 
   if (!form || !notification) return;
 
+  const escapeHtml = (str) => {
+    return str.replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;')
+              .replace(/'/g, '&#39;');
+  };
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -253,8 +261,9 @@ function initContactForm() {
       // Reset form
       form.reset();
 
-      // Show beautiful toaster notification
-      notifMsg.innerHTML = `Merci <strong>${senderName}</strong> ! Message transmis avec succès à <strong>Master Najib</strong>.`;
+      // Show beautiful toaster notification (safely escaped)
+      const escapedName = escapeHtml(senderName);
+      notifMsg.innerHTML = `Merci <strong>${escapedName}</strong> ! Message transmis avec succès à <strong>Master Najib</strong>.`;
       notification.classList.add('show');
 
       // Hide notification after 4.5 seconds
